@@ -67,7 +67,7 @@ void KalmanFilter::UpdateEKF(const VectorXd &z) {
     Hx << h0, h1, h2;
     VectorXd y = z - Hx;
 
-    // Normalization of angle
+    // Normalization of angle if required
     if(fabs(y[1]) > M_PI){
         y[1] = atan2(sin(y[1]), cos(y[1]));
     }
